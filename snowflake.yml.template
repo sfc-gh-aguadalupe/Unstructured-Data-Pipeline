@@ -1,0 +1,36 @@
+# Snowflake Streamlit App Configuration Template
+# Copy this file to snowflake.yml and update with your values
+
+definition_version: 2
+
+entities:
+  DOCUMENT_AI_APP:
+    type: streamlit
+    
+    # Fully qualified app identifier
+    # Format: DATABASE.SCHEMA.APP_NAME
+    identifier: DOCUMENT_AI_DB.DOCS.DOCUMENT_AI_APP
+    
+    # Stage for storing app files and documents
+    # Format: DATABASE.SCHEMA.STAGE_NAME
+    # Must have DIRECTORY = (ENABLE = TRUE)
+    stage: DOCUMENT_AI_DB.DOCS.MY_DOCS_STAGE
+    
+    # Warehouse to run the Streamlit app
+    # Note: Cortex AI functions use separate GPU compute
+    query_warehouse: COMPUTE_WH
+    
+    # Main Python file (in app/ directory)
+    main_file: app/Auto-Magic Document AI.py
+    
+    # Artifacts to deploy (directories or files)
+    artifacts:
+      - app/
+    
+    # App title displayed in Snowsight
+    title: "Snowflake Document AI"
+
+# Deployment command:
+# snow streamlit deploy --replace --connection <your-connection-name>
+
+

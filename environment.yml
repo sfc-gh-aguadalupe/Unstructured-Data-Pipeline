@@ -1,0 +1,18 @@
+# Snowflake Streamlit Environment Configuration
+# This file defines the Python environment and package dependencies
+# for the Streamlit app running in Snowflake
+
+name: document_ai_env
+channels:
+  - snowflake
+
+dependencies:
+  - python=3.11
+  - snowflake-snowpark-python
+  - streamlit
+  - pandas
+  
+  # PyPI packages (not available in conda)
+  - pip:
+    - pypdfium2==4.19.0  # PDF rendering for interactive preview
+
